@@ -1,0 +1,25 @@
+module modules
+singleton Theme 1.0 Theme.qml
+
+Sidebar 1.0 Sidebar.qml
+SidebarButton 1.0 SidebarButton.qml
+
+WeatherCard 1.0 WeatherCard.qml
+ForecastDay 1.0 ForecastDay.qml
+InfoRow 1.0 InfoRow.qml
+
+SystemCard 1.0 SystemCard.qml
+SparkTile 1.0 SparkTile.qml
+BarTile 1.0 BarTile.qml
+
+MusicPlayerCard 1.0 MusicPlayerCard.qml
+PlayerButton 1.0 PlayerButton.qml
+
+NotificationsCard 1.0 NotificationsCard.qml
+NotificationRow 1.0 NotificationRow.qml
+
+CalendarCard 1.0 CalendarCard.qml
+DayCell 1.0 DayCell.qml
+
+EventsCard 1.0 EventsCard.qml
+EventRow 1.0 EventRow.qml
