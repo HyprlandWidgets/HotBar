@@ -22,7 +22,7 @@ ShellRoot {
         // КОРНЕВАЯ ПОДЛОЖКА ВСЕГО ОКНА
         Rectangle {
             anchors.fill: parent
-            color: Qt.rgba(0.027, 0.055, 0.129, 0.7)
+            color: Qt.rgba(0.0196, 0.0431, 0.1294, 0.9)
             radius: 20 
             border.color: Qt.rgba(0.027, 0.055, 0.129, 0.7)
             border.width: 1

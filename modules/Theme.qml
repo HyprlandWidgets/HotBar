@@ -7,7 +7,7 @@ QtObject {
     readonly property color bgCard: "#CC121321"
     readonly property color bgCardSolid: "#12131F"
     readonly property color bgTile: "#1A1C2E"
-    readonly property color border: "#14FFFFFF"
+    readonly property color border: "#1A1C2E"
     readonly property color hoverBg: "#14FFFFFF"
 
     // ---- Акценты ----

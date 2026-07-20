@@ -3,7 +3,17 @@ import QtQuick.Layouts
 
 Rectangle {
     id: root
-    color: Theme.bgCard
+    gradient: Gradient {
+        GradientStop {
+            position: 0.5
+            color: "#CC121321"
+        }
+
+        GradientStop {
+            position: 0.5
+             color: "#090E2C"
+        }
+    }
     radius: Theme.radiusLg
     border.width: 1
     border.color: Theme.border
