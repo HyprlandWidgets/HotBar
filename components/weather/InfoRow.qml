@@ -1,11 +1,12 @@
 import QtQuick
 import QtQuick.Layouts
+import "../../"
 
 RowLayout {
     property string iconGlyph: "thermostat"
     property string label: ""
     property string value: ""
-    spacing: 8
+    spacing: 4
     Text {
         text: Theme.glyph(iconGlyph)
         font.family: Theme.fontFamily
