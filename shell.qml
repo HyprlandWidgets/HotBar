@@ -1,89 +1,147 @@
 import QtQuick
 import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 import Quickshell
 import Quickshell.Wayland
-import "./modules"
+import "./"
 
 ShellRoot {
     PanelWindow {
         id: window
-        implicitWidth: 1050
-        implicitHeight: 820
-        WlrLayershell.namespace: "quickshell:hotbar" 
+        width: 770
+        height: 750
+        WlrLayershell.namespace: "quickshell:hotbar"
         color: "transparent"
-        anchors { top: true; left: true }
-        margins {
-            top: 5
-            left: (screen.width - implicitWidth) / 2
+        anchors {
+            top: true
+            left: true
         }
 
-        exclusiveZone: 0
+        margins {
+            top: 5
+            left: (screen.width - width) / 2
+        }
 
-        // КОРНЕВАЯ ПОДЛОЖКА ВСЕГО ОКНА
+
         Rectangle {
+            id: windowBackground
             anchors.fill: parent
-            color: Qt.rgba(0.0196, 0.0431, 0.1294, 0.9)
-            radius: 20 
-            border.color: Qt.rgba(0.027, 0.055, 0.129, 0.7)
-            border.width: 1
+            radius: 24
+            color: "transparent"
 
-            RowLayout {
+
+            Image {
+                id: backgroundImage
                 anchors.fill: parent
-                anchors.margins: 16 
-                spacing: 16 
+                source: "./assest/blur.jpg"
+                fillMode: Image.PreserveAspectCrop
+                smooth: true
+                visible: false
+            }
+
+
+            Rectangle {
+                id: backgroundMask
+                anchors.fill: parent
+                radius: 24
+                color: "white"
+                visible: false
+            }
+
+            OpacityMask {
+                anchors.fill: parent
+                source: backgroundImage
+                maskSource: backgroundMask
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 24
+                color: Qt.rgba(0.0196, 0.0431, 0.1294, 0.75)
+            }
+
+            GridLayout {
+                anchors.fill: parent
+                anchors.margins: 12
+                columns: 2
+                columnSpacing: 12
+
 
                 Sidebar {
-                    id: sidebar
-
-                    Layout.preferredWidth: 72
+                    Layout.column: 0
+                    Layout.preferredWidth: 70
                     Layout.fillHeight: true
-
-                    onItemClicked: (index, name) =>
-                        console.log("Sidebar ->", name)
-
-                    onPowerClicked:
-                        console.log("Power clicked")
+                    radius: 18
                 }
 
-                ColumnLayout {
-                    Layout.preferredWidth: 450
+
+                GridLayout {
+                    id: dashboard
+                    Layout.column: 1
+                    Layout.fillWidth: true
                     Layout.fillHeight: true
-                    spacing: 20
+                    columns: 2
+                    rowSpacing: 12
+                    columnSpacing: 12
+
 
                     WeatherCard {
+                        Layout.row: 0
+                        Layout.column: 0
                         Layout.fillWidth: true
-                        Layout.preferredHeight: 330
-                    }
-
-                    SystemCard {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 205
-                    }
-
-                    MusicPlayerCard {
                         Layout.fillHeight: true
-                        Layout.fillWidth: true
                     }
-                }
 
-                ColumnLayout {
-                    Layout.preferredWidth: 380
-                    Layout.fillHeight: true
-                    spacing: 20
 
                     NotificationsCard {
+                        Layout.row: 0
+                        Layout.column: 1
                         Layout.fillWidth: true
-                        Layout.preferredHeight: 330
+                        Layout.fillHeight: true
                     }
+
+
+                    SystemCard {
+                        Layout.row: 1
+                        Layout.column: 0
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
+
 
                     CalendarCard {
+                        Layout.row: 1
+                        Layout.column: 1
                         Layout.fillWidth: true
-                        Layout.preferredHeight: 320
+                        Layout.fillHeight: true
                     }
 
-                    EventsCard {
-                        Layout.fillHeight: true
+
+                    MusicPlayerCard {
+                        Layout.row: 2
+                        Layout.column: 0
                         Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
+
+
+                    EventsCard {
+                        Layout.row: 2
+                        Layout.column: 1
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
+
+
+                    Rectangle {
+                        id: quickAccessPlaceholder
+                        Layout.row: 4
+                        Layout.column: 0
+                        Layout.columnSpan: 2
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 70
+                        radius: 16
+                        color: Qt.rgba(0.05, 0.10, 0.20, 0.65)
                     }
                 }
             }

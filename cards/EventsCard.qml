@@ -1,33 +1,33 @@
 import QtQuick
 import QtQuick.Layouts
+import "../"
 
 Rectangle {
      gradient: Gradient {
-        GradientStop {
-            position: 0.5
-            color: "#CC121321"
-        }
-
-        GradientStop {
-            position: 0.5
-             color: "#090E2C"
-        }
+        orientation: Gradient.Vertical
+        GradientStop { position: 0.0;  color: "#1A5A7A40" }  
+        GradientStop { position: 0.06; color: "#0C3A5A30" }
+        GradientStop { position: 0.22; color: "transparent" }
     }
+    border.color: Qt.rgba(
+    0.45,
+    0.62,
+    1.0,
+    0.14
+)
     id: root
-    color: Theme.bgCard
     radius: Theme.radiusLg
-    border.width: 1
-    border.color: Theme.border
     property var monthNamesGenitive: ["января", "февраля", "марта", "апреля", "мая", "июня",
                                         "июля", "августа", "сентября", "октября", "ноября", "декабря"]
     property date _now: new Date()
     readonly property string dateLabel: "Сегодня, " + _now.getDate() + " " + monthNamesGenitive[_now.getMonth()]
     signal eventClicked(int index)
 
-    ColumnLayout {
+    GridLayout {
         anchors.fill: parent
         anchors.margins: Theme.cardPadding
-        spacing: Theme.spacingMd
+        columns: 1
+        rowSpacing: Theme.spacingMd
 
         Text { text: root.dateLabel; color: Theme.textPrimary; font.pixelSize: 15; font.bold: true; font.family: Theme.fontFamily }
 

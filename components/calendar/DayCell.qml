@@ -1,11 +1,12 @@
 import QtQuick
+import "../../"
 
 Rectangle {
     property int day: 1
     property bool currentMonth: true
     property bool selected: false
     signal clicked()
-
+    
     width: 40; height: 34
     radius: Theme.radiusSm
     color: selected ? Theme.accent : (ma.containsMouse && currentMonth ? Theme.hoverBg : "transparent")

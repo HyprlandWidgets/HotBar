@@ -1,10 +1,11 @@
 import QtQuick
 import QtQuick.Layouts
+import "../../"
 
 ColumnLayout {
     property string dayLabel: "Сб"
     property string iconGlyph: "cloud"
-    property int high: 20
+    property int high: 220
     property int low: 10
     spacing: 6
 

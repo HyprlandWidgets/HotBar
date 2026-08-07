@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
+import "../../"
 
 // Плитка с полосой прогресса (для RAM/DISK)
 Rectangle {
@@ -11,10 +12,11 @@ Rectangle {
     radius: Theme.radiusMd
     color: Theme.bgTile
 
-    ColumnLayout {
+    GridLayout {
         anchors.fill: parent
         anchors.margins: 14
-        spacing: 4
+        columns: 1
+        rowSpacing: 4
 
         readonly property bool noData: value < 0
 

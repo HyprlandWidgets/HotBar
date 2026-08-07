@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
+import "../../"
 
 // Плитка со спарклайном (для CPU/GPU)
 Rectangle {
