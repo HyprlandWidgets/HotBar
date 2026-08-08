@@ -7,7 +7,7 @@ import "./"
 
 ShellRoot {
     PanelWindow {
-        id: window
+        id: panelWindow
         width: 770
         height: 750
         WlrLayershell.namespace: "quickshell:hotbar"
@@ -22,13 +22,11 @@ ShellRoot {
             left: (screen.width - width) / 2
         }
 
-
         Rectangle {
             id: windowBackground
             anchors.fill: parent
             radius: 24
             color: "transparent"
-
 
             Image {
                 id: backgroundImage
@@ -38,7 +36,6 @@ ShellRoot {
                 smooth: true
                 visible: false
             }
-
 
             Rectangle {
                 id: backgroundMask
@@ -66,14 +63,13 @@ ShellRoot {
                 columns: 2
                 columnSpacing: 12
 
-
                 Sidebar {
+                    id:sidebar
                     Layout.column: 0
                     Layout.preferredWidth: 70
                     Layout.fillHeight: true
                     radius: 18
                 }
-
 
                 GridLayout {
                     id: dashboard
@@ -84,54 +80,53 @@ ShellRoot {
                     rowSpacing: 12
                     columnSpacing: 12
 
-
                     WeatherCard {
+                        id:weatherCard
                         Layout.row: 0
                         Layout.column: 0
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                     }
-
 
                     NotificationsCard {
+                        id: notificationCard
                         Layout.row: 0
                         Layout.column: 1
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                     }
 
-
                     SystemCard {
+                        id: systemCard
                         Layout.row: 1
                         Layout.column: 0
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                     }
-
 
                     CalendarCard {
+                        id: calendarCard
                         Layout.row: 1
                         Layout.column: 1
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                     }
 
-
                     MusicPlayerCard {
+                        id: musicPlayerCard
                         Layout.row: 2
                         Layout.column: 0
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                     }
 
-
                     EventsCard {
+                        id: eventsCards
                         Layout.row: 2
                         Layout.column: 1
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                     }
-
 
                     Rectangle {
                         id: quickAccessPlaceholder
